@@ -140,18 +140,17 @@ function listPrinter(){
     console.log(immagine.title)
     console.log(immagine.text)
 
-    const img = immagine.image
 
-    picturesContainer.innerHTML += `<img src="${immagine.image}" class="item d-none" alt="">`
+    picturesContainer.innerHTML += ` <img src="${immagine.image}" class="item d-none" alt="">
+    <div class="text-container">
+      <h1 class="d-none" >${immagine.title}</h1>
+      <p class="d-none">${immagine.text}</p>
+    </div>`
 
   })
 
-  /* for(let c = 0; c < arrayName.length; c++){
-    whereToPrint.innerHTML += `<img src="${arrayName[c]}" class="item d-none" alt="">`
-    console.log(c)
-  } */
 
-} 
+}   
 
 
 
