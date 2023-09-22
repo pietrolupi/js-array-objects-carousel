@@ -1,14 +1,6 @@
 
 const picturesContainer = document.querySelector('.pictures-container');
 
-/* const images = [
-  'img/01.webp',
-  'img/02.webp',
-  'img/03.webp',
-  'img/04.webp',
-  'img/05.webp',
-]; */
-
 const images = [
   {
       image: 'img/01.webp',
@@ -49,53 +41,13 @@ const textCollection = document.getElementsByClassName('cstm-text');
 showNext(); 
 
 //BOTTONE BOTTOM/////////////////////////////////////////////
-btnBot.addEventListener('click', function(){
-  
-  if(counterImg === images.length - 1){
-  
-  hidePrev();
-  
-  counterImg = 0;
-  
-  showNext();    
-    
-  }else{
-  
-  hidePrev(); 
-  
-  counterImg ++;
-  
-  showNext();  
-
-  }
-}); 
+btnBot.addEventListener('click', forwardCycle); 
 
 ////////////////////////////////////////////////////////////
 
 //BOTTONE TOP //////////////////////////////////////////////
 
-btnTop.addEventListener('click', function(){
-  
-  if(counterImg === 0){
-  
-  hidePrev(); 
-
-  counterImg = 4;
-  
-  showNext();  
-    
-  }else{
-  
-  btnBot.classList.remove('d-none');
-  
-  hidePrev(); 
-  
-  counterImg--;
-
-  showNext(); 
- 
-  }
-});
+btnTop.addEventListener('click', reverseCycle);
 
 ////////////////////////////////////////////////////////////
 
@@ -139,8 +91,6 @@ function toggler(what, show){
 
 }
  
-
-
 /**
  * stampa tutti gli elementi di una lista all'interno di un div
  * @param {whereToPrintInside} whereToPrint 
@@ -162,10 +112,7 @@ function listPrinter(){
 
   })
 
-
 }   
-
-
 
 function hidePrev(){
   toggler(itemsCollection[counterImg], 'hide');
@@ -227,7 +174,6 @@ const interval = defaultScrolling();
 const reverseInterval = reverseScrolling();
 
 
-
 function defaultScrolling(){
   
   setInterval(function(){
@@ -235,15 +181,9 @@ function defaultScrolling(){
     if(switchOnOff === false){
       clearInterval(interval);
     }else{
-
       forwardCycle();
-
     }
-    
-   
-    
-  }, 2000)
-  
+  }, 4000)
 }
 
 function reverseScrolling(){
@@ -253,13 +193,9 @@ function reverseScrolling(){
     if(switchOnOff === true){
       clearInterval(reverseInterval)
     }else{
-
      reverseCycle();
-
     }
-
-    
-  }, 2000)
+  }, 4000)
   
   
 }
