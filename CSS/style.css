@@ -94,3 +94,11 @@ body{
   width: 100%;
   position: absolute;
 }
+
+.slide-btn.reverse-btn{
+  width: 100px;
+  height: 100px;
+  left: 20px;
+  top: calc(80% / 2);
+  transform: translatey(calc(- 80% / 2));
+}

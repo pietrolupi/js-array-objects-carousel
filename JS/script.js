@@ -33,12 +33,9 @@ const images = [
   }
 ];
 
-
-
-
 const btnTop = document.querySelector('.top');
 const btnBot = document.querySelector('.bot');
-
+const btnSwitch = document.querySelector('.reverse-btn');
 
 let counterImg = 0;
 
@@ -99,7 +96,22 @@ btnTop.addEventListener('click', function(){
  
   }
 });
- 
+
+////////////////////////////////////////////////////////////
+
+//BOTTONE SWITCH ////////////////////////////////////////////
+
+switchOnOff = true;
+
+btnSwitch.addEventListener('click', function(){
+  if(switchOnOff === true){
+    switchOnOff = false;
+  }else{
+    switchOnOff = true;
+  }
+})
+
+
 
 //FUNZIONI////////
 
@@ -168,3 +180,87 @@ function showNext(){
   toggler(maskCollection[counterImg], 'hide'); 
   toggler(textCollection[counterImg], 'show')
 } 
+
+function forwardCycle(){
+  if(counterImg === images.length - 1){
+  
+    hidePrev();
+    
+    counterImg = 0;
+    
+    showNext();    
+      
+    }else{
+    
+    hidePrev(); 
+    
+    counterImg ++;
+  
+    showNext();  
+
+    }
+}
+
+function reverseCycle(){
+  if(counterImg === 0){
+  
+    hidePrev(); 
+  
+    counterImg = 4;
+    
+    showNext();  
+      
+    }else{
+    
+    btnBot.classList.remove('d-none');
+    
+    hidePrev(); 
+    
+    counterImg--;
+  
+    showNext(); 
+   
+    }
+}
+
+const interval = defaultScrolling();
+const reverseInterval = reverseScrolling();
+
+
+
+function defaultScrolling(){
+  
+  setInterval(function(){
+    
+    if(switchOnOff === false){
+      clearInterval(interval);
+    }else{
+
+      forwardCycle();
+
+    }
+    
+   
+    
+  }, 2000)
+  
+}
+
+function reverseScrolling(){
+  
+  setInterval(function(){
+
+    if(switchOnOff === true){
+      clearInterval(reverseInterval)
+    }else{
+
+     reverseCycle();
+
+    }
+
+    
+  }, 2000)
+  
+  
+}
+
