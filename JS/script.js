@@ -47,6 +47,7 @@ listPrinter();
 const itemsCollection = document.getElementsByClassName('item');
 const maskCollection = document.getElementsByClassName('mask');
 const smallImgCollection = document.getElementsByClassName('img-small');
+const textCollection = document.getElementsByClassName('cstm-text');
 
 showNext(); 
 
@@ -142,9 +143,9 @@ function listPrinter(){
 
 
     picturesContainer.innerHTML += ` <img src="${immagine.image}" class="item d-none" alt="">
-    <div class="text-container">
-      <h1 class="d-none" >${immagine.title}</h1>
-      <p class="d-none">${immagine.text}</p>
+    <div class="cstm-text d-none text-container">
+      <h1>${immagine.title}</h1>
+      <p>${immagine.text}</p>
     </div>`
 
   })
@@ -158,10 +159,12 @@ function hidePrev(){
   toggler(itemsCollection[counterImg], 'hide');
   toggler(smallImgCollection[counterImg], 'inactive');
   toggler(maskCollection[counterImg], 'show');
+  toggler(textCollection[counterImg], 'hide')
 }
 
 function showNext(){
   toggler(itemsCollection[counterImg], 'show');
   toggler(smallImgCollection[counterImg], 'active');
   toggler(maskCollection[counterImg], 'hide'); 
+  toggler(textCollection[counterImg], 'show')
 } 
