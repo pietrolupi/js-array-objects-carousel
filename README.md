@@ -19,5 +19,8 @@ Al click della thumb cambia l’immagine attiva
 * creo una struttura "xxx" html-css adeguata per inserire il testo nelle immagini
 * stampo la struttura "xxx" con il ciclo inserendo come values ${} l'immagine, il testo e il titolo
 
-* bonus da pensare in seguito
+* bonus :
+* creo una timing function setInterval che di default faccia scorrrere le immagini ogni 3 secondi riprendendo le stesse function utilizzate per i bottoni di scorrimento.
+* creo un bottone aggiuntivo reverse
+* add.eventlistener al click la funzione di scorrimento automatico si blocca e faccio partire una funzione in senso opposto
 
